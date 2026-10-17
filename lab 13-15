@@ -1,0 +1,165 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNF24Rf8lmNrr+MtfocqMME",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Geethanvith1369/1925260159_DSA0402-FODS/blob/main/lab%2013-15\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from collections import Counter\n",
+        "import re\n",
+        "\n",
+        "# Create sample text\n",
+        "text = \"\"\"Python is easy. Python is useful.\n",
+        "Data analysis is easy.\"\"\"\n",
+        "\n",
+        "# Convert text to lowercase\n",
+        "text = text.lower()\n",
+        "\n",
+        "# Extract words\n",
+        "words = re.findall(r'\\b\\w+\\b', text)\n",
+        "\n",
+        "# Calculate word frequency\n",
+        "frequency = Counter(words)\n",
+        "\n",
+        "# Display the result\n",
+        "print(\"Word Frequency Distribution:\")\n",
+        "for word, count in frequency.items():\n",
+        "    print(word, \":\", count)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EAi2vNGCG14H",
+        "outputId": "ddf4d37a-6816-443b-9b00-d645502b0b21"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Word Frequency Distribution:\n",
+            "python : 2\n",
+            "is : 3\n",
+            "easy : 2\n",
+            "useful : 1\n",
+            "data : 1\n",
+            "analysis : 1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Create sample customer data\n",
+        "data = {\n",
+        "    'customer_age': [20, 25, 20, 30, 25, 35, 20, 30, 25, 40]\n",
+        "}\n",
+        "\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "# Find frequency distribution of customer ages\n",
+        "frequency = df['customer_age'].value_counts().sort_index()\n",
+        "\n",
+        "# Display the result\n",
+        "print(\"Frequency Distribution of Customer Ages:\")\n",
+        "print(frequency)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HDzWuTjYHAFF",
+        "outputId": "4054d8a4-fcbb-44ac-87fb-b90e713af22a"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Frequency Distribution of Customer Ages:\n",
+            "customer_age\n",
+            "20    3\n",
+            "25    3\n",
+            "30    2\n",
+            "35    1\n",
+            "40    1\n",
+            "Name: count, dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Number of likes received by each post\n",
+        "likes = [10, 20, 10, 30, 20, 10, 40, 30, 20, 50]\n",
+        "\n",
+        "# Create DataFrame\n",
+        "df = pd.DataFrame({'Likes': likes})\n",
+        "\n",
+        "# Calculate frequency distribution\n",
+        "frequency = df['Likes'].value_counts().sort_index()\n",
+        "\n",
+        "# Display result\n",
+        "print(\"Frequency Distribution of Likes:\")\n",
+        "print(frequency)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vpTCQzYKHLQZ",
+        "outputId": "9e084b6c-75fd-42dc-d96f-76a6e0162162"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Frequency Distribution of Likes:\n",
+            "Likes\n",
+            "10    3\n",
+            "20    3\n",
+            "30    2\n",
+            "40    1\n",
+            "50    1\n",
+            "Name: count, dtype: int64\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
