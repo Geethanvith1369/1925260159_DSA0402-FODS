@@ -1,0 +1,153 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNYtqBtIeo2x6cl3dArutwT",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Geethanvith1369/1925260159_DSA0402-FODS/blob/main/lab%201-3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tQS8rqgi8Lii",
+        "outputId": "655576d8-5e9c-4e87-a60e-b66bd6c44487"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Math Average: 86.25\n",
+            "Science Average: 88.75\n",
+            "English Average: 84.50\n",
+            "History Average: 81.25\n",
+            "Subject with highest average: Science\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Marks of 4 students in 4 subjects\n",
+        "student_scores = np.array([\n",
+        "    [85, 90, 78, 88],\n",
+        "    [92, 85, 80, 75],\n",
+        "    [78, 88, 95, 82],\n",
+        "    [90, 92, 85, 80]\n",
+        "])\n",
+        "\n",
+        "# Calculate average score for each subject\n",
+        "averages = np.mean(student_scores, axis=0)\n",
+        "\n",
+        "subjects = [\"Math\", \"Science\", \"English\", \"History\"]\n",
+        "\n",
+        "# Display averages\n",
+        "for subject, avg in zip(subjects, averages):\n",
+        "    print(f\"{subject} Average: {avg:.2f}\")\n",
+        "\n",
+        "# Find the subject with the highest average\n",
+        "highest_subject = subjects[np.argmax(averages)]\n",
+        "print(\"Subject with highest average:\", highest_subject)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Sales data for 3 products over 3 sales records\n",
+        "sales_data = np.array([\n",
+        "    [100, 150, 200],\n",
+        "    [250, 300, 350],\n",
+        "    [120, 180, 240]\n",
+        "])\n",
+        "\n",
+        "# Calculate average price\n",
+        "average_price = np.mean(sales_data)\n",
+        "\n",
+        "print(\"Average price of all products:\", average_price)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4bjPmc-o8tSd",
+        "outputId": "af0987b6-848f-49f8-b704-037d387fbe47"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average price of all products: 210.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Data: Bedrooms, Square Footage, Sale Price\n",
+        "house_data = np.array([\n",
+        "    [3, 1200, 200000],\n",
+        "    [5, 1800, 350000],\n",
+        "    [4, 1500, 250000],\n",
+        "    [6, 2200, 450000],\n",
+        "    [5, 2000, 400000]\n",
+        "])\n",
+        "\n",
+        "# Select houses with more than 4 bedrooms\n",
+        "filtered_houses = house_data[house_data[:, 0] > 4]\n",
+        "\n",
+        "# Calculate average sale price\n",
+        "average_price = np.mean(filtered_houses[:, 2])\n",
+        "\n",
+        "print(\"Average sale price:\", average_price)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9BOgK-K186xz",
+        "outputId": "d0085a60-5dfe-4230-dd03-4bcd330c7176"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average sale price: 400000.0\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
