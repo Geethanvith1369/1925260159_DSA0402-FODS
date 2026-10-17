@@ -1,0 +1,149 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN+FxHXrpdw2N5B7N+DHPqG",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Geethanvith1369/1925260159_DSA0402-FODS/blob/main/lab%204-6\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Quarterly sales data\n",
+        "sales_data = np.array([10000, 12000, 15000, 18000])\n",
+        "\n",
+        "# Calculate total sales\n",
+        "total_sales = np.sum(sales_data)\n",
+        "\n",
+        "# Calculate percentage increase from Q1 to Q4\n",
+        "percentage_increase = ((sales_data[3] - sales_data[0]) / sales_data[0]) * 100\n",
+        "\n",
+        "print(\"Total sales for the year:\", total_sales)\n",
+        "print(\"Percentage increase:\", percentage_increase, \"%\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OHxjh34xApap",
+        "outputId": "26db7088-0291-40e4-a47a-10a92a1fa935"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Total sales for the year: 55000\n",
+            "Percentage increase: 80.0 %\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Fuel efficiency of car models (in MPG)\n",
+        "fuel_efficiency = np.array([25, 30, 35, 40])\n",
+        "\n",
+        "# Calculate average fuel efficiency\n",
+        "average = np.mean(fuel_efficiency)\n",
+        "\n",
+        "# Calculate percentage improvement from first to second car\n",
+        "improvement = ((fuel_efficiency[1] - fuel_efficiency[0]) /\n",
+        "               fuel_efficiency[0]) * 100\n",
+        "\n",
+        "print(\"Average fuel efficiency:\", average, \"MPG\")\n",
+        "print(\"Percentage improvement:\", improvement, \"%\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yxPcRfiyAvvK",
+        "outputId": "f636edea-e7c2-40bb-9d19-05b1e0bd118e"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average fuel efficiency: 32.5 MPG\n",
+            "Percentage improvement: 20.0 %\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Item prices and quantities\n",
+        "prices = [100, 200, 150]\n",
+        "quantities = [2, 1, 3]\n",
+        "\n",
+        "# Discount and tax rates\n",
+        "discount_rate = 10\n",
+        "tax_rate = 5\n",
+        "\n",
+        "# Calculate total cost\n",
+        "subtotal = sum(p * q for p, q in zip(prices, quantities))\n",
+        "\n",
+        "discount = subtotal * discount_rate / 100\n",
+        "price_after_discount = subtotal - discount\n",
+        "\n",
+        "tax = price_after_discount * tax_rate / 100\n",
+        "total_cost = price_after_discount + tax\n",
+        "\n",
+        "print(\"Subtotal:\", subtotal)\n",
+        "print(\"Discount:\", discount)\n",
+        "print(\"Tax:\", tax)\n",
+        "print(\"Total cost:\", total_cost)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "hbSFx5IUA71c",
+        "outputId": "facfa74e-cd60-4186-9948-67e8d59a0608"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Subtotal: 850\n",
+            "Discount: 85.0\n",
+            "Tax: 38.25\n",
+            "Total cost: 803.25\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
