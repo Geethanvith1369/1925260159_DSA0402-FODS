@@ -1,0 +1,196 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOegACOvrZCIJZmU4Y36pIK",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Geethanvith1369/1925260159_DSA0402-FODS/blob/main/lab%207-8\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Create order DataFrame\n",
+        "order_data = pd.DataFrame({\n",
+        "    'customer_id': [101, 102, 101, 103, 102],\n",
+        "    'order_date': ['2026-01-05', '2026-01-10', '2026-02-01',\n",
+        "                   '2026-02-15', '2026-03-01'],\n",
+        "    'product_name': ['Pen', 'Book', 'Pen', 'Bag', 'Book'],\n",
+        "    'order_quantity': [2, 3, 4, 1, 5]\n",
+        "})\n",
+        "\n",
+        "# Convert order_date to datetime\n",
+        "order_data['order_date'] = pd.to_datetime(order_data['order_date'])\n",
+        "\n",
+        "# 1. Total orders made by each customer\n",
+        "print(\"Orders by each customer:\")\n",
+        "print(order_data.groupby('customer_id').size())\n",
+        "\n",
+        "# 2. Average order quantity for each product\n",
+        "print(\"\\nAverage quantity for each product:\")\n",
+        "print(order_data.groupby('product_name')['order_quantity'].mean())\n",
+        "\n",
+        "# 3. Earliest and latest order dates\n",
+        "print(\"\\nEarliest order date:\", order_data['order_date'].min())\n",
+        "print(\"Latest order date:\", order_data['order_date'].max())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QknCGYwjBVe4",
+        "outputId": "721c5143-7ea6-4981-becc-6c2b06de3426"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Orders by each customer:\n",
+            "customer_id\n",
+            "101    2\n",
+            "102    2\n",
+            "103    1\n",
+            "dtype: int64\n",
+            "\n",
+            "Average quantity for each product:\n",
+            "product_name\n",
+            "Bag     1.0\n",
+            "Book    4.0\n",
+            "Pen     3.0\n",
+            "Name: order_quantity, dtype: float64\n",
+            "\n",
+            "Earliest order date: 2026-01-05 00:00:00\n",
+            "Latest order date: 2026-03-01 00:00:00\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Create sales DataFrame\n",
+        "sales_data = pd.DataFrame({\n",
+        "    'product_name': ['Pen', 'Book', 'Pen', 'Bag', 'Book', 'Pencil', 'Bag'],\n",
+        "    'quantity_sold': [10, 20, 15, 8, 25, 12, 18]\n",
+        "})\n",
+        "\n",
+        "# Calculate total quantity sold for each product\n",
+        "total_sales = sales_data.groupby('product_name')['quantity_sold'].sum()\n",
+        "\n",
+        "# Find top 5 best-selling products\n",
+        "top_5 = total_sales.sort_values(ascending=False).head(5)\n",
+        "\n",
+        "print(\"Top 5 best-selling products:\")\n",
+        "print(top_5)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lLpi4mBWBfr-",
+        "outputId": "45f91c09-1b4f-493a-da60-485ba9902f73"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Top 5 best-selling products:\n",
+            "product_name\n",
+            "Book      45\n",
+            "Bag       26\n",
+            "Pen       25\n",
+            "Pencil    12\n",
+            "Name: quantity_sold, dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Create property DataFrame\n",
+        "property_data = pd.DataFrame({\n",
+        "    'property_id': [101, 102, 103, 104, 105],\n",
+        "    'location': ['Chennai', 'Mumbai', 'Chennai', 'Delhi', 'Mumbai'],\n",
+        "    'bedrooms': [3, 5, 4, 6, 5],\n",
+        "    'area': [1200, 1800, 1500, 2200, 2000],\n",
+        "    'listing_price': [5000000, 8000000, 6000000, 9000000, 7500000]\n",
+        "})\n",
+        "\n",
+        "# 1. Average listing price in each location\n",
+        "print(\"Average listing price by location:\")\n",
+        "print(property_data.groupby('location')['listing_price'].mean())\n",
+        "\n",
+        "# 2. Number of properties with more than 4 bedrooms\n",
+        "print(\"\\nProperties with more than 4 bedrooms:\")\n",
+        "print((property_data['bedrooms'] > 4).sum())\n",
+        "\n",
+        "# 3. Property with the largest area\n",
+        "print(\"\\nProperty with the largest area:\")\n",
+        "print(property_data.loc[property_data['area'].idxmax()])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1Zjd74HQBr5R",
+        "outputId": "7ff2642b-e1ca-479d-85f4-f7789871bd93"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average listing price by location:\n",
+            "location\n",
+            "Chennai    5500000.0\n",
+            "Delhi      9000000.0\n",
+            "Mumbai     7750000.0\n",
+            "Name: listing_price, dtype: float64\n",
+            "\n",
+            "Properties with more than 4 bedrooms:\n",
+            "3\n",
+            "\n",
+            "Property with the largest area:\n",
+            "property_id          104\n",
+            "location           Delhi\n",
+            "bedrooms               6\n",
+            "area                2200\n",
+            "listing_price    9000000\n",
+            "Name: 3, dtype: object\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
